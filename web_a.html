@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web A - Giao diện gửi nhận</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="container">
+        <h1>Web A - Giao diện gửi nhận</h1>
+
+        <section class="messaging-section">
+            <h2>Gửi Tin Nhắn đến Web B</h2>
+            <div class="input-group">
+                <input type="text" id="messageInputWebA" placeholder="Nhập tin nhắn cho Web B...">
+                <button onclick="sendMessage()">Gửi Tin Nhắn</button>
+            </div>
+            <div id="sendMessageStatusWebA" class="status-message"></div>
+
+            <h2>Tin Nhắn Đã Nhận (từ Web B)</h2>
+            <div id="messagesListWebA" class="message-list">
+                <p class="no-message-placeholder">Chưa có tin nhắn nào.</p>
+            </div>
+        </section>
+
+        <section class="file-section">
+            <h2>Tải Lên File (đến Backend)</h2>
+            <input type="file" id="fileInputWebA">
+            <button onclick="uploadFile()">Tải Lên</button>
+
+            <h2>Tải Xuống File</h2>
+            <select id="downloadFileInputWebA">
+                <option value="">-- Chọn file để tải xuống --</option>
+            </select>
+            <button onclick="downloadFile()">Tải Xuống</button>
+            <div id="downloadStatusWebA" class="status-message"></div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initFrontend('WebA');
+        });
+    </script>
+</body>
+</html>
